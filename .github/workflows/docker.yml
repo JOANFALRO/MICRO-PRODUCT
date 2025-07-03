@@ -27,7 +27,7 @@ jobs:
           mvn clean package -DskipTests
           echo "✅ Build completado."
 
-            - name: 📊 Paso 4 - Análisis con SonarQube
+      - name: 📊 Paso 4 - Análisis con SonarQube
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
@@ -38,7 +38,6 @@ jobs:
             -Dsonar.host.url=http://localhost:9000 \
             -Dsonar.token=$SONAR_TOKEN
           echo "✅ Análisis completado."
-
 
       - name: 🐳 Paso 5 - Desplegar con Docker Compose
         run: |
